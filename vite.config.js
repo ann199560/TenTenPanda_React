@@ -26,7 +26,7 @@ function moveOutputPlugin() {
 export default defineConfig(({ command }) => ({
   // base 的寫法:
   // base: '/Repository 的名稱/' -> 只在 build 時使用這個 base，dev 時還是用 '/'
-  base: command === "build" ? "/TenTenPanda/" : "/",
+  base: command === "build" ? "/TenTenPanda_React/" : "/",
   plugins: [
     react(), // ← 只加這行
     liveReload(["./layout/**/*.ejs", "./pages/**/*.ejs", "./pages/**/*.html"]),

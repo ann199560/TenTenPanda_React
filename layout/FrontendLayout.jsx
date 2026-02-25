@@ -1,4 +1,4 @@
-import {  Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 function FrontendLayout() {
   return (
@@ -7,18 +7,18 @@ function FrontendLayout() {
         <div className="container d-flex justify-content-between align-items-center px-3 py-4 position-relative">
           {/* LOGO */}
           <div className="order-0 mx-lg-auto">
-            <a className="navbar-brand" href="index.html">
+            <Link className="navbar-brand" to="/">
               <img
                 className="logo"
                 src="../assets/images/logo.jpg"
                 alt="TenTen-Logo"
               />
-            </a>
+            </Link>
           </div>
           {/* 購物車 + 漢堡選單 (行動裝置) */}
           <div className="d-flex order-1 align-items-center order-lg-0">
-            <a
-              href="login.html"
+            <Link
+              to="/cart"
               className="headerBtn bg-primary-20 p-3 br-12 d-lg-none me-6"
             >
               <svg
@@ -31,7 +31,7 @@ function FrontendLayout() {
               >
                 <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0" />
               </svg>
-            </a>
+            </Link>
             <button
               className="navbar-toggler headerBtn bg-primary-20 p-0 border-0"
               type="button"
@@ -53,9 +53,9 @@ function FrontendLayout() {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-none d-lg-flex">
                 <li className="nav-item p-4 me-8 fs-6">
-                  <a className="nav-link text-neutral-100" href="story.html">
+                  <Link className="nav-link text-neutral-100" to="/story">
                     品牌故事
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item p-4 me-8 fs-6">
                   <a className="nav-link text-neutral-100" href="news.html">
@@ -109,8 +109,8 @@ function FrontendLayout() {
           </div>
           {/* 會員 + 購物車 (桌機模式) */}
           <div className="d-none d-lg-flex align-items-center position-absolute end-0 ms-auto order-lg-2">
-            <a
-              href="login.html"
+            <Link
+              to="/login"
               className="headerBtn bg-primary-20 p-3 br-12 me-8"
             >
               <svg
@@ -123,7 +123,7 @@ function FrontendLayout() {
               >
                 <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
               </svg>
-            </a>
+            </Link>
             <a href="login.html" className="headerBtn bg-primary-20 p-3 br-12">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -142,7 +142,7 @@ function FrontendLayout() {
         <div
           className="modal fade d-lg-none"
           id="modal-menu"
-          tabindex="-1"
+          tabIndex="-1"
           aria-hidden="true"
         >
           <div className="modal-dialog modal-fullscreen-sm-down">
@@ -163,7 +163,9 @@ function FrontendLayout() {
                         src="../assets/images/corner-S.png"
                         alt="corner"
                         className="position-absolute start-0"
-                        style={{transform: "translateX(-100%) rotate(-90deg)"}}
+                        style={{
+                          transform: "translateX(-100%) rotate(-90deg)",
+                        }}
                       />
 
                       <div>
@@ -171,7 +173,7 @@ function FrontendLayout() {
                           src="../assets/images/corner-S.png"
                           alt="corner"
                           className="position-absolute"
-                          style={{transform: "rotate(-90deg)"}}
+                          style={{ transform: "rotate(-90deg)" }}
                         />
                       </div>
                     </div>
@@ -181,13 +183,13 @@ function FrontendLayout() {
               <div className="modal-body bg-primary-tint p-5 br-bl-40 br-br-40">
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                    <a
-                      href="story.html"
+                    <Link
+                      to="/story"
                       type="button"
                       className="nav-link mb-6 py-3 ps-1 text-neutral-100"
                     >
                       品牌故事
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
                     <a
@@ -252,13 +254,13 @@ function FrontendLayout() {
                 </ul>
               </div>
               <div className="modal-footer border-0 d-flex justify-content-center mt-3 mb-6">
-                <a
-                  href="login.html"
+                <Link
+                  to="/login"
                   type="button"
                   className="btn headerLogin btn-outline-primary-80 br-4 fs-6 text-primary-80 px-8 py-4"
                 >
                   登入／註冊
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -288,15 +290,12 @@ function FrontendLayout() {
           </div>
           <div className="d-lg-flex align-items-lg-center">
             <div className="mb-10">
-              <a href="return.html" className="fs-T-M me-3 px-lg-5 py-lg-4">
+              <Link to="/return" className="fs-T-M me-3 px-lg-5 py-lg-4">
                 退換貨政策
-              </a>
-              <a
-                href="privacy.html"
-                className="fs-T-M px-lg-5 py-lg-4 me-lg-18"
-              >
+              </Link>
+              <Link to="/privacy" className="fs-T-M px-lg-5 py-lg-4 me-lg-18">
                 隱私權政策
-              </a>
+              </Link>
             </div>
             <div className="d-flex justify-content-center pb-10">
               <a href="#" className="bg-primary-20 p-3 br-12 me-6">
